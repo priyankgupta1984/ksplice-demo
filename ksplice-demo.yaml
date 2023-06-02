@@ -1,0 +1,13 @@
+---
+- name: Deploy Ksplice uptrack online client
+  hosts: all
+  become: yes
+  become_method: sudo
+  gather_facts: yes
+  tasks:
+  - name: Make sure ksplice offline packages are removed
+    package: name=ksplice-tools,uptrack-offline state=absent
+  - name: Install ksplice uptrack offline package
+    package: name=uptrack state=present
+  - name: Update to latest Ksplice uptrack updates
+    ansible.builtin.command: /usr/sbin/uptrack-upgrade  -y
