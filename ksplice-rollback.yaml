@@ -6,4 +6,4 @@
   gather_facts: yes
   tasks:
   - name: Remove Ksplice uptrack updates
-    ansible.builtin.command: /usr/sbin/uptrack-remove  -y
+    ansible.builtin.command: /usr/sbin/uptrack-remove --all -y
