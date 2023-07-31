@@ -1,0 +1,9 @@
+---
+- name: Deploy Ksplice uptrack online client
+  hosts: all
+  become: yes
+  become_method: sudo
+  gather_facts: yes
+  tasks:
+  - name: Remove Ksplice uptrack updates
+    ansible.builtin.command: /usr/sbin/uptrack-remove  -y
